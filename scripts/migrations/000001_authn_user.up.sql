@@ -16,13 +16,13 @@ CREATE INDEX IF NOT EXISTS user_username_idx ON users (username);
 
 CREATE TABLE IF NOT EXISTS tasks (
     id BIGSERIAL PRIMARY KEY,
-    identifier UUID NOT NULL DEFAULT uuid_generate_v4()
+    identifier UUID NOT NULL DEFAULT uuid_generate_v4(),
     title TEXT NOT NULL,
     a_description TEXT NOT NULL,
     a_status TEXT NOT NULL,
-    due_date TIMESTAMP NOT NULL,
+    due_date DATE NOT NULL,
 
     CONSTRAINT uk_identifier UNIQUE (identifier)
-)
+);
 
 CREATE INDEX IF NOT EXISTS task_identifier_idx ON tasks (identifier);
